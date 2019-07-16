@@ -34,6 +34,7 @@
 		30555CB522DE741C00945A56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30555CBF22DE758B00945A56 /* Reflections.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Reflections.podspec; sourceTree = SOURCE_ROOT; };
 		30555CC222DE771500945A56 /* Reflections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reflections.swift; sourceTree = "<group>"; };
+		30555CC622DE7A0100945A56 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = SOURCE_ROOT; };
 		5A6B6AEBF28525D7B9C27302 /* Pods_ReflectionsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReflectionsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A452DE477EFCDAEFC5B82EF /* Pods-ReflectionsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReflectionsTests.release.xcconfig"; path = "Target Support Files/Pods-ReflectionsTests/Pods-ReflectionsTests.release.xcconfig"; sourceTree = "<group>"; };
 		853F2A35C1D83CCC59814B6B /* Pods_Reflections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reflections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,10 +87,12 @@
 			isa = PBXGroup;
 			children = (
 				30555CC222DE771500945A56 /* Reflections.swift */,
+				30555CC622DE7A0100945A56 /* Package.swift */,
 				30555CBF22DE758B00945A56 /* Reflections.podspec */,
 				30555CA922DE741C00945A56 /* Info.plist */,
 			);
-			path = Reflections;
+			name = Reflections;
+			path = Sources/Reflections;
 			sourceTree = "<group>";
 		};
 		30555CB222DE741C00945A56 /* ReflectionsTests */ = {
@@ -98,7 +101,8 @@
 				30555CB322DE741C00945A56 /* ReflectionsTests.swift */,
 				30555CB522DE741C00945A56 /* Info.plist */,
 			);
-			path = ReflectionsTests;
+			name = ReflectionsTests;
+			path = Tests/ReflectionsTests;
 			sourceTree = "<group>";
 		};
 		49025C2AEE801B0AA719AEC4 /* Frameworks */ = {
