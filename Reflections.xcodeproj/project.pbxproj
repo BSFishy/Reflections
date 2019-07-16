@@ -11,7 +11,6 @@
 		30555CB422DE741C00945A56 /* ReflectionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30555CB322DE741C00945A56 /* ReflectionsTests.swift */; };
 		30555CC022DE758B00945A56 /* Reflections.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 30555CBF22DE758B00945A56 /* Reflections.podspec */; };
 		30555CC322DE771500945A56 /* Reflections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30555CC222DE771500945A56 /* Reflections.swift */; };
-		30555CC522DE77D800945A56 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 30555CC422DE77D800945A56 /* .gitignore */; };
 		B9BE165636772B2E54836DCC /* Pods_Reflections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 853F2A35C1D83CCC59814B6B /* Pods_Reflections.framework */; };
 		D6B4FB1702972BCD91C217BB /* Pods_ReflectionsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6B6AEBF28525D7B9C27302 /* Pods_ReflectionsTests.framework */; };
 /* End PBXBuildFile section */
@@ -34,9 +33,7 @@
 		30555CB322DE741C00945A56 /* ReflectionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionsTests.swift; sourceTree = "<group>"; };
 		30555CB522DE741C00945A56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30555CBF22DE758B00945A56 /* Reflections.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Reflections.podspec; sourceTree = SOURCE_ROOT; };
-		30555CC122DE76E800945A56 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		30555CC222DE771500945A56 /* Reflections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reflections.swift; sourceTree = "<group>"; };
-		30555CC422DE77D800945A56 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		5A6B6AEBF28525D7B9C27302 /* Pods_ReflectionsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReflectionsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A452DE477EFCDAEFC5B82EF /* Pods-ReflectionsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReflectionsTests.release.xcconfig"; path = "Target Support Files/Pods-ReflectionsTests/Pods-ReflectionsTests.release.xcconfig"; sourceTree = "<group>"; };
 		853F2A35C1D83CCC59814B6B /* Pods_Reflections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reflections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,8 +88,6 @@
 				30555CC222DE771500945A56 /* Reflections.swift */,
 				30555CBF22DE758B00945A56 /* Reflections.podspec */,
 				30555CA922DE741C00945A56 /* Info.plist */,
-				30555CC122DE76E800945A56 /* LICENSE */,
-				30555CC422DE77D800945A56 /* .gitignore */,
 			);
 			path = Reflections;
 			sourceTree = "<group>";
@@ -220,7 +215,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30555CC522DE77D800945A56 /* .gitignore in Resources */,
 				30555CC022DE758B00945A56 /* Reflections.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
