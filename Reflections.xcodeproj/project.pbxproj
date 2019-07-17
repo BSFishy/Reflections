@@ -11,6 +11,9 @@
 		30555CB422DE741C00945A56 /* ReflectionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30555CB322DE741C00945A56 /* ReflectionsTests.swift */; };
 		30555CC022DE758B00945A56 /* Reflections.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 30555CBF22DE758B00945A56 /* Reflections.podspec */; };
 		30555CC322DE771500945A56 /* Reflections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30555CC222DE771500945A56 /* Reflections.swift */; };
+		30555CC822DE7EB100945A56 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30555CC722DE7EB100945A56 /* Class.swift */; };
+		30555CCA22DE82EA00945A56 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30555CC922DE82EA00945A56 /* Field.swift */; };
+		30555CCC22DF531700945A56 /* Variable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30555CCB22DF531700945A56 /* Variable.swift */; };
 		B9BE165636772B2E54836DCC /* Pods_Reflections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 853F2A35C1D83CCC59814B6B /* Pods_Reflections.framework */; };
 		D6B4FB1702972BCD91C217BB /* Pods_ReflectionsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6B6AEBF28525D7B9C27302 /* Pods_ReflectionsTests.framework */; };
 /* End PBXBuildFile section */
@@ -35,6 +38,9 @@
 		30555CBF22DE758B00945A56 /* Reflections.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Reflections.podspec; sourceTree = SOURCE_ROOT; };
 		30555CC222DE771500945A56 /* Reflections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reflections.swift; sourceTree = "<group>"; };
 		30555CC622DE7A0100945A56 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = SOURCE_ROOT; };
+		30555CC722DE7EB100945A56 /* Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
+		30555CC922DE82EA00945A56 /* Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
+		30555CCB22DF531700945A56 /* Variable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Variable.swift; sourceTree = "<group>"; };
 		5A6B6AEBF28525D7B9C27302 /* Pods_ReflectionsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReflectionsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A452DE477EFCDAEFC5B82EF /* Pods-ReflectionsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReflectionsTests.release.xcconfig"; path = "Target Support Files/Pods-ReflectionsTests/Pods-ReflectionsTests.release.xcconfig"; sourceTree = "<group>"; };
 		853F2A35C1D83CCC59814B6B /* Pods_Reflections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reflections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,7 +92,10 @@
 		30555CA722DE741C00945A56 /* Reflections */ = {
 			isa = PBXGroup;
 			children = (
+				30555CC722DE7EB100945A56 /* Class.swift */,
+				30555CC922DE82EA00945A56 /* Field.swift */,
 				30555CC222DE771500945A56 /* Reflections.swift */,
+				30555CCB22DF531700945A56 /* Variable.swift */,
 				30555CC622DE7A0100945A56 /* Package.swift */,
 				30555CBF22DE758B00945A56 /* Reflections.podspec */,
 				30555CA922DE741C00945A56 /* Info.plist */,
@@ -301,7 +310,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30555CC822DE7EB100945A56 /* Class.swift in Sources */,
 				30555CC322DE771500945A56 /* Reflections.swift in Sources */,
+				30555CCA22DE82EA00945A56 /* Field.swift in Sources */,
+				30555CCC22DF531700945A56 /* Variable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,13 +465,14 @@
 			baseConfigurationReference = FF4A387E3944789EFDCB459F /* Pods-Reflections.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Reflections/Info.plist;
+				INFOPLIST_FILE = Sources/Reflections/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -469,6 +482,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.fishy.Reflections;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -480,13 +494,14 @@
 			baseConfigurationReference = 0946918E564AB77AA6F4FDE1 /* Pods-Reflections.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Reflections/Info.plist;
+				INFOPLIST_FILE = Sources/Reflections/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -496,6 +511,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.fishy.Reflections;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -505,9 +521,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8C8D310E01DCDCF4B66C331C /* Pods-ReflectionsTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ReflectionsTests/Info.plist;
+				DEVELOPMENT_TEAM = K8Q6V9JF7Y;
+				INFOPLIST_FILE = Tests/ReflectionsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -515,6 +533,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fishy.ReflectionsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -524,9 +543,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6A452DE477EFCDAEFC5B82EF /* Pods-ReflectionsTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ReflectionsTests/Info.plist;
+				DEVELOPMENT_TEAM = K8Q6V9JF7Y;
+				INFOPLIST_FILE = Tests/ReflectionsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -534,6 +555,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fishy.ReflectionsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

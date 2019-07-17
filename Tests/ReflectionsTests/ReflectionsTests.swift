@@ -6,29 +6,67 @@
 //  Copyright © 2019 Matt Provost. All rights reserved.
 //
 
-import XCTest
+import Quick
+import Nimble
+
 @testable import Reflections
 
-class ReflectionsTests: XCTestCase {
+class ReflectionsTests: QuickSpec {
+    override func spec() {
+        describe("reflected variable") {
+            describe("an integer") {
+                var variable: Int = 123
+                let ref: Variable<Int> = Variable<Int>(asAny: &variable)
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+                it("should be equal") {
+                    expect(ref.value).to(equal(variable))
+                }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+                it("should be the same size") {
+                    expect(ref.size).to(equal(MemoryLayout<Int>.size))
+                }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+                it("should have the same stride") {
+                    expect(ref.stride).to(equal(MemoryLayout<Int>.stride))
+                }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+                it("should have the same alignment") {
+                    expect(ref.alignment).to(equal(MemoryLayout<Int>.alignment))
+                }
+
+                it("should be able to change") {
+                    expect(ref.value).to(equal(variable))
+                    variable += 1
+                    expect(ref.value).to(equal(variable))
+                }
+            }
+
+            describe("a class") {
+                var variable: NSObject = NSObject()
+                let ref: Variable<NSObject> = Variable<NSObject>(withVariable: &variable)
+
+                it("should be equal") {
+                    expect(ref.value).to(equal(variable), description: String(format: "Expected %p to equal %p", variable, ref.value))
+                }
+
+                it("should be the same size") {
+                    expect(ref.size).to(equal(MemoryLayout<NSObject>.size))
+                }
+
+                it("should have the same stride") {
+                    expect(ref.stride).to(equal(MemoryLayout<NSObject>.stride))
+                }
+
+                it("should have the same alignment") {
+                    expect(ref.alignment).to(equal(MemoryLayout<NSObject>.alignment))
+                }
+
+                it("should be able to change") {
+                    expect(ref.value).to(equal(variable), description: String(format: "Expected %p to equal %p", variable, ref.value))
+                    variable = NSObject()
+                    expect(ref.value).to(equal(variable), description: String(format: "Expected %p to equal %p", variable, ref.value))
+                }
+            }
         }
     }
-
 }

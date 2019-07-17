@@ -25,7 +25,7 @@ Reflections is an advanced library for Swift designed to add convenience through
   spec.platform     = :ios, "10.0"
 
   spec.source       = { :git => "https://github.com/BSFishy/Reflections.git", :tag => "#{spec.version}" }
-  spec.source_files  = "Reflections/**/*.{swift}"
+  spec.source_files  = "Reflections/**/*.{swift,h,m}"
 
   spec.swift_version = "5.0"
 end

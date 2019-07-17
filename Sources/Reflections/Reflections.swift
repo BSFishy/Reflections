@@ -6,4 +6,8 @@
 //  Copyright © 2019 Matt Provost. All rights reserved.
 //
 
-import Foundation
+func debugLog(_ message: String?, _ args: Any?...) {
+    #if DEBUG
+    print(String(format: message ?? "", args))
+    #endif
+}
