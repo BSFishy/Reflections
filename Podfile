@@ -12,5 +12,6 @@ target 'Reflections' do
     
     pod 'Quick'
     pod 'Nimble'
+    pod 'SpecLeaks'
   end
 end

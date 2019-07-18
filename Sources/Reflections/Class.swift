@@ -30,7 +30,7 @@ class Class<T> {
     private func addChild<T>(label: String?, value: inout T) {
         if let label = label {
             // TODO: see about casting this because I don't think this should be casted
-            self.fields[label] = (Field<T>(withName: label, andObject: &value) as! Field<Any>)
+            self.fields[label] = (Field<T>(withName: label, andValue: &value) as! Field<Any>)
         }
     }
 }

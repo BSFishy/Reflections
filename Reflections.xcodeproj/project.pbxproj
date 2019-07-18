@@ -14,6 +14,7 @@
 		30555CC822DE7EB100945A56 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30555CC722DE7EB100945A56 /* Class.swift */; };
 		30555CCA22DE82EA00945A56 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30555CC922DE82EA00945A56 /* Field.swift */; };
 		30555CCC22DF531700945A56 /* Variable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30555CCB22DF531700945A56 /* Variable.swift */; };
+		30555CD822E0A7F900945A56 /* VariableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30555CD722E0A7F900945A56 /* VariableTests.swift */; };
 		B9BE165636772B2E54836DCC /* Pods_Reflections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 853F2A35C1D83CCC59814B6B /* Pods_Reflections.framework */; };
 		D6B4FB1702972BCD91C217BB /* Pods_ReflectionsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6B6AEBF28525D7B9C27302 /* Pods_ReflectionsTests.framework */; };
 /* End PBXBuildFile section */
@@ -41,6 +42,7 @@
 		30555CC722DE7EB100945A56 /* Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
 		30555CC922DE82EA00945A56 /* Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
 		30555CCB22DF531700945A56 /* Variable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Variable.swift; sourceTree = "<group>"; };
+		30555CD722E0A7F900945A56 /* VariableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableTests.swift; sourceTree = "<group>"; };
 		5A6B6AEBF28525D7B9C27302 /* Pods_ReflectionsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReflectionsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A452DE477EFCDAEFC5B82EF /* Pods-ReflectionsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReflectionsTests.release.xcconfig"; path = "Target Support Files/Pods-ReflectionsTests/Pods-ReflectionsTests.release.xcconfig"; sourceTree = "<group>"; };
 		853F2A35C1D83CCC59814B6B /* Pods_Reflections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reflections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				30555CB322DE741C00945A56 /* ReflectionsTests.swift */,
+				30555CD722E0A7F900945A56 /* VariableTests.swift */,
 				30555CB522DE741C00945A56 /* Info.plist */,
 			);
 			name = ReflectionsTests;
@@ -322,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30555CB422DE741C00945A56 /* ReflectionsTests.swift in Sources */,
+				30555CD822E0A7F900945A56 /* VariableTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

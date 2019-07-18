@@ -9,23 +9,9 @@
 class Field<T>: Variable<T> {
     private(set) var name: String
 
-    init(withName name: String) {
+    init(withName name: String, andValue value: UnsafeMutablePointer<T>) {
         self.name = name
 
-        super.init()
-    }
-
-    convenience init(withName name: String, andObject value: UnsafeMutablePointer<T>) {
-        self.init(withName: name)
-
-        self.pointer = value
-    }
-}
-
-extension Field where T: AnyObject {
-    convenience init(withName name: String, value: UnsafeMutablePointer<T>) {
-        self.init(withName: name)
-
-        self.pointer = value
+        super.init(withVariable: value)
     }
 }

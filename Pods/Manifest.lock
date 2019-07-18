@@ -1,20 +1,26 @@
 PODS:
   - Nimble (8.0.2)
   - Quick (2.1.0)
+  - SpecLeaks (0.1.8):
+    - Nimble
+    - Quick
 
 DEPENDENCIES:
   - Nimble
   - Quick
+  - SpecLeaks
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Nimble
     - Quick
+    - SpecLeaks
 
 SPEC CHECKSUMS:
   Nimble: 622629381bda1dd5678162f21f1368cec7cbba60
   Quick: 4be43f6634acfa727dd106bdf3929ce125ffa79d
+  SpecLeaks: 0fa048f06b1adb36d8d3e86e039b5f67bf74bb06
 
-PODFILE CHECKSUM: 6ca567781d646405e0ec3b1f6a3a0b9763f6531d
+PODFILE CHECKSUM: 2f23af273e1df209f3bc4430717722be236bdcd4
 
 COCOAPODS: 1.7.4
