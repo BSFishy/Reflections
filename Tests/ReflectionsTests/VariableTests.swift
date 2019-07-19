@@ -12,53 +12,48 @@ import SpecLeaks
 
 @testable import Reflections
 
-// MARK: Variable constants
-
-fileprivate let sharedVariableTest: String = "variable"
-
-fileprivate let testName: String           = "name"
-fileprivate let testPrimaryValue: String   = "primaryValue"
-fileprivate let testSecondaryValue: String = "secondaryValue"
-
-fileprivate let defaultTestName: String    = "unspecified"
-
-// MARK: Helper methods
-
-fileprivate func createContext<T: Hashable>(withName name: String, primary: T, andSecondary secondary: T) -> [String: Any] {
-    var context: [String: Any] = [:]
-
-    context[testName] = name
-    context[testPrimaryValue] = primary
-    context[testSecondaryValue] = secondary
-
-    return context
+internal struct VariableTestParameters<T> {
+    var name: String
+    var primary: T
+    var secondary: T
 }
 
-// MARK: Tests
+class VariableTests: QuickSpec {
+    override func spec() {
+        bothTests(withName: "boolean", primary: true, andSecondary: false)
+        bothTests(withName: "integer", primary: 123, andSecondary: 123456)
+        bothTests(withName: "double", primary: 123.456, andSecondary: 123456.789123)
+        bothTests(withName: "string", primary: "primary", andSecondary: "secondary")
+    }
+}
 
-class SharedVariableConfiguration: QuickConfiguration {
-    override class func configure(_ configuration: Configuration) {
-        sharedExamples(sharedVariableTest) { (sharedExampleContext: @escaping SharedExampleContext) in
-            let context: [String: Any] = sharedExampleContext()
+extension VariableTests {
+    internal func bothTests<T: Equatable & CVarArg>(withName name: String, primary: T, andSecondary secondary: T) {
+        context("immutable") {
+            variableTest(withName: name, primary: primary, secondary: secondary, andVariableCreator: { pointer in Reflections.immutable(variable: pointer)})
+        }
 
-            let name: String = (context[testName] as? String) ?? defaultTestName
+        context("mutable") {
+            variableTest(withName: name, primary: primary, secondary: secondary, andVariableCreator: Reflections.mutable)
+        }
+    }
 
-            guard let primaryValue: AnyHashable = context[testPrimaryValue] as? AnyHashable
-                , let secondaryValue: AnyHashable = context[testSecondaryValue] as? AnyHashable else {
-                    RefDebug.raiseError("No initial/secondary value pair was specified for \(name) variable tests")
+    internal func variableTest<T: Equatable & CVarArg, U: _Variable<T, P>, P: CVarArg>(withName name: String, primary: T, secondary: T, andVariableCreator creator: @escaping (UnsafeMutablePointer<T>) -> U) {
+        var variable: T = primary
+        let reference: U = creator(&variable)
+
+        let variablePointer: UnsafeMutablePointer<T> = UnsafeMutablePointer<T>(mutating: &variable)
+
+        RefDebug.debugLog("Testing \(name) with a primary value of \(stringify(primary)) and secondary value of \(stringify(secondary))\n\tInitial reference: \(String(reflecting: reference))\n\tVariable pointer: %p\n\tReference pointer: %p", variablePointer, reference.pointer)
+
+        describe(name) {
+            it("should be equal") {
+                RefDebug.debugLog("Comparing equality for \(name) variable of reference (\(stringify(reference.value))) and variable (\(stringify(variable)))")
+
+                expect(reference.value).to(equal(variable), description: "variable and reference are not equal to each other")
             }
 
-            var variable: AnyHashable = primaryValue
-            let reference: Variable<AnyHashable> = Variable<AnyHashable>(withVariable: &variable)
-
-            RefDebug.debugLog("Testing \(name) with a primary value of \(primaryValue) and secondary value of \(secondaryValue)\n\tVariable pointer: %p\n\tReference pointer: %p", variable as CVarArg, reference.value! as CVarArg)
-
-            describe(name) {
-                it("should be equal") {
-                    RefDebug.debugLog("Comparing equality for \(name) variable of reference (\(reference.value!)) and variable (\(variable))")
-                    expect(reference.value).to(equal(variable), description: "variable and reference are not equal to each other")
-                }
-
+            describe("comparing the memory layout and variable") {
                 it("should have the same size") {
                     let size: Int = MemoryLayout.size(ofValue: variable)
                     RefDebug.debugLog("Checking size for \(name) variable with reference (\(reference.size)) and actual (\(size))")
@@ -76,48 +71,134 @@ class SharedVariableConfiguration: QuickConfiguration {
                     RefDebug.debugLog("Checking alignment for \(name) variable with reference (\(reference.alignment)) and actual (\(alignment))")
                     expect(reference.alignment).to(equal(alignment), description: "variable and reference don't have the same alignment")
                 }
+            }
 
+            describe("updating") {
                 it("should update the reference") {
-                    RefDebug.debugLog("Attempting to update the \(name) variable's reference (%p) according to the variable (%p)\n\tFrom: \(primaryValue)\n\tTo: \(secondaryValue)", reference.value! as CVarArg, variable as CVarArg)
-                    variable = primaryValue
+                    RefDebug.debugLog("Attempting to update the \(name) variable's reference (%p) according to the variable (%p)\n\tFrom: \(stringify(primary))\n\tTo: \(stringify(secondary))", reference.pointer, variablePointer)
+
+                    variable = primary
                     expect(reference.value).to(equal(variable), description: "variable and reference weren't initially equal")
-                    variable = secondaryValue
+                    variable = secondary
                     expect(reference.value).to(equal(variable), description: "variable and reference didn't become equal")
                 }
 
                 it("should update the variable") {
-                    RefDebug.debugLog("Attempting to update the \(name) variable (%p) according to the reference (%p)\n\tFrom: \(primaryValue)\n\tTo: \(secondaryValue)", variable as CVarArg, reference.value! as CVarArg)
-                    variable = primaryValue
-                    expect(variable).to(equal(reference.value), description: "variable and reference weren't initially equal")
-                    reference.value = secondaryValue
-                    expect(variable).to(equal(reference.value), description: "variable and reference didn't become equal")
+                    if let reference = reference as? MutableVariable<T> {
+                        RefDebug.debugLog("Attempting to update the \(name) variable (%p) according to the reference (%p)\n\tFrom: \(stringify(primary))\n\tTo: \(stringify(secondary))", variablePointer, reference.pointer)
+
+                        variable = primary
+                        expect(variable).to(equal(reference.value), description: "variable and reference weren't initially equal")
+                        reference.value = secondary
+                        expect(variable).to(equal(reference.value), description: "variable and reference didn't become equal")
+                    } else {
+                        RefDebug.debugLog("An immutable reference cannot update the variable. Automatically passing")
+
+                        expect(true).to(beTrue())
+                    }
                 }
+            }
 
-                describe("memory leakage") {
-                    it("should not leak on initialization") {
-                        let ref = LeakTest {
-                            Variable<AnyHashable>(withVariable: &variable)
-                        }
-
-                        expect(ref).toNot(leak(), description: "variable reference leaked on initialization")
+            describe("memory leakage") {
+                it("should not leak on initialization") {
+                    let ref = LeakTest {
+                        creator(&variable)
                     }
 
-                    it("should not leak on deinitialization") {
-                        var tmpRef: Variable<AnyHashable>? = Variable<AnyHashable>(withVariable: &variable)
-                        weak var leakRef = tmpRef
-                        tmpRef = nil
+                    expect(ref).toNot(leak(), description: "variable reference leaked on initialization")
+                }
 
-                        expect(leakRef).to(beNil(), description: "variable reference did not get deinitialized")
+                it("should not leak on deinitialization") {
+                    var tmpRef: U? = creator(&variable)
+                    weak var leakRef = tmpRef
+                    tmpRef = nil
+
+                    expect(leakRef).to(beNil(), description: "variable reference did not get deinitialized")
+                }
+            }
+
+            describe("converisons") {
+                describe("to description") {
+                    it("should not be empty") {
+                        let converted: String = reference.description
+                        RefDebug.debugLog("Converted \(name) reference to description: \(converted)")
+
+                        expect(converted).toNot(beEmpty())
+                    }
+                }
+
+                describe("to debug description") {
+                    it("should not be empty") {
+                        let converted: String = reference.debugDescription
+                        RefDebug.debugLog("Converted \(name) reference to debug description: \(converted)")
+
+                        expect(converted).toNot(beEmpty())
+                    }
+                }
+
+                describe("to playground description") {
+                    it("should not be nil or empty") {
+                        let converted: String? = reference.playgroundDescription as? String
+                        RefDebug.debugLog("Converted \(name) reference to playground description: \(converted ?? "nil")")
+
+                        expect(converted).toNot(beNil())
+                        expect(converted).toNot(beEmpty())
+                    }
+                }
+
+                describe("to string description") {
+                    it("should not be empty") {
+                        let converted: String = String(describing: reference)
+                        RefDebug.debugLog("Converted \(name) reference to string description: \(converted)")
+
+                        expect(converted).toNot(beEmpty())
+                    }
+                }
+
+                describe("to reflection description") {
+                    it("should not be empty") {
+                        let converted: String = String(reflecting: reference)
+                        RefDebug.debugLog("Converted \(name) reference to reflection description: \(converted)")
+
+                        expect(converted).toNot(beEmpty())
+                    }
+                }
+            }
+
+            describe("equality") {
+                describe("equal checks") {
+                    it("should equal another equivalent reference") {
+                        variable = primary
+                        let ref: U = creator(&variable)
+
+                        expect(reference == ref).to(beTrue())
+                        expect(ref == reference).to(beTrue())
+                    }
+
+                    it("should equal the value pointed to") {
+                        variable = primary
+                        expect(reference == primary).to(beTrue())
+                        expect(primary == reference).to(beTrue())
+                    }
+                }
+
+                describe("not equal checks") {
+                    it("should not equal another equivalent reference") {
+                        variable = secondary
+                        var vari: T = primary
+                        let ref: U = creator(&vari)
+
+                        expect(reference == ref).to(beFalse())
+                        expect(ref == reference).to(beFalse())
+                    }
+
+                    it("should not equal the value pointed to") {
+                        variable = secondary
+                        expect(reference == primary).to(beFalse())
+                        expect(primary == reference).to(beFalse())
                     }
                 }
             }
         }
-    }
-}
-
-class VariableTests: QuickSpec {
-    override func spec() {
-        itBehavesLike(sharedVariableTest) { createContext(withName: "integer", primary: 123, andSecondary: 123456) }
-        itBehavesLike(sharedVariableTest) { createContext(withName: "string", primary: "primary", andSecondary: "secondary") }
     }
 }

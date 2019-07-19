@@ -8,6 +8,18 @@
 
 import Foundation
 
+public class Reflections {
+    private init() {}
+
+    public static func immutable<T>(variable: UnsafePointer<T>) -> ImmutableVariable<T> {
+        return ImmutableVariable<T>(withVariable: variable)
+    }
+
+    public static func mutable<T>(variable: UnsafeMutablePointer<T>) -> MutableVariable<T> {
+        return MutableVariable<T>(withVariable: variable)
+    }
+}
+
 class RefDebug {
     static func debugLog(_ message: String?, _ args: CVarArg...) {
         #if DEBUG

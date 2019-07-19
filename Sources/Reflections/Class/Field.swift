@@ -6,12 +6,18 @@
 //  Copyright © 2019 Matt Provost. All rights reserved.
 //
 
-class Field<T>: Variable<T> {
+class Field<T>: MutableVariable<T> {
     private(set) var name: String
 
     init(withName name: String, andValue value: UnsafeMutablePointer<T>) {
         self.name = name
 
         super.init(withVariable: value)
+    }
+
+    required init(withVariable variable: UnsafeMutablePointer<T>) {
+        self.name = "anonymous"
+
+        super.init(withVariable: variable)
     }
 }

@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3022166322E0EA0500C75076 /* MutableVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3022166222E0EA0500C75076 /* MutableVariable.swift */; };
+		3022166522E0EBA900C75076 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3022166422E0EBA900C75076 /* Strings.swift */; };
+		3022166C22E0FAAD00C75076 /* Variable+Convertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3022166B22E0FAAD00C75076 /* Variable+Convertible.swift */; };
+		3022167022E0FADB00C75076 /* Variable+Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3022166F22E0FADB00C75076 /* Variable+Hashable.swift */; };
+		3022167522E1FEE000C75076 /* ImmutableVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3022167422E1FEE000C75076 /* ImmutableVariable.swift */; };
+		3022167822E206FE00C75076 /* Pointer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3022167722E206FE00C75076 /* Pointer+Extensions.swift */; };
+		3022167B22E2131A00C75076 /* Variable+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3022167A22E2131A00C75076 /* Variable+Equatable.swift */; };
+		3036203222E2198A0013A92E /* ImmutableVariable+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036203122E2198A0013A92E /* ImmutableVariable+Equatable.swift */; };
+		3036203422E2199B0013A92E /* MutableVariable+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036203322E2199B0013A92E /* MutableVariable+Equatable.swift */; };
 		30555CAF22DE741C00945A56 /* Reflections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30555CA522DE741C00945A56 /* Reflections.framework */; };
 		30555CB422DE741C00945A56 /* ReflectionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30555CB322DE741C00945A56 /* ReflectionsTests.swift */; };
 		30555CC022DE758B00945A56 /* Reflections.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 30555CBF22DE758B00945A56 /* Reflections.podspec */; };
@@ -31,6 +40,15 @@
 
 /* Begin PBXFileReference section */
 		0946918E564AB77AA6F4FDE1 /* Pods-Reflections.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reflections.release.xcconfig"; path = "Target Support Files/Pods-Reflections/Pods-Reflections.release.xcconfig"; sourceTree = "<group>"; };
+		3022166222E0EA0500C75076 /* MutableVariable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutableVariable.swift; sourceTree = "<group>"; };
+		3022166422E0EBA900C75076 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		3022166B22E0FAAD00C75076 /* Variable+Convertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Variable+Convertible.swift"; sourceTree = "<group>"; };
+		3022166F22E0FADB00C75076 /* Variable+Hashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Variable+Hashable.swift"; sourceTree = "<group>"; };
+		3022167422E1FEE000C75076 /* ImmutableVariable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmutableVariable.swift; sourceTree = "<group>"; };
+		3022167722E206FE00C75076 /* Pointer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pointer+Extensions.swift"; sourceTree = "<group>"; };
+		3022167A22E2131A00C75076 /* Variable+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Variable+Equatable.swift"; sourceTree = "<group>"; };
+		3036203122E2198A0013A92E /* ImmutableVariable+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImmutableVariable+Equatable.swift"; sourceTree = "<group>"; };
+		3036203322E2199B0013A92E /* MutableVariable+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MutableVariable+Equatable.swift"; sourceTree = "<group>"; };
 		30555CA522DE741C00945A56 /* Reflections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Reflections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30555CA922DE741C00945A56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30555CAE22DE741C00945A56 /* ReflectionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReflectionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +89,78 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3022166822E0FA5300C75076 /* Variable */ = {
+			isa = PBXGroup;
+			children = (
+				3022167922E211F900C75076 /* Extensions */,
+				3022167422E1FEE000C75076 /* ImmutableVariable.swift */,
+				3022166222E0EA0500C75076 /* MutableVariable.swift */,
+				30555CCB22DF531700945A56 /* Variable.swift */,
+			);
+			path = Variable;
+			sourceTree = "<group>";
+		};
+		3022166922E0FA6C00C75076 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				3022166422E0EBA900C75076 /* Strings.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		3022166A22E0FA8E00C75076 /* Variable+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3022166B22E0FAAD00C75076 /* Variable+Convertible.swift */,
+				3022167A22E2131A00C75076 /* Variable+Equatable.swift */,
+				3022166F22E0FADB00C75076 /* Variable+Hashable.swift */,
+			);
+			path = "Variable+Extensions";
+			sourceTree = "<group>";
+		};
+		3022167322E1047A00C75076 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				30555CC722DE7EB100945A56 /* Class.swift */,
+				30555CC922DE82EA00945A56 /* Field.swift */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		3022167622E206E500C75076 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3022167722E206FE00C75076 /* Pointer+Extensions.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		3022167922E211F900C75076 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3036202F22E219540013A92E /* ImmutableVariable+Extensions */,
+				3036203022E219630013A92E /* MutableVariable+Extensions */,
+				3022166A22E0FA8E00C75076 /* Variable+Extensions */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3036202F22E219540013A92E /* ImmutableVariable+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3036203122E2198A0013A92E /* ImmutableVariable+Equatable.swift */,
+			);
+			path = "ImmutableVariable+Extensions";
+			sourceTree = "<group>";
+		};
+		3036203022E219630013A92E /* MutableVariable+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3036203322E2199B0013A92E /* MutableVariable+Equatable.swift */,
+			);
+			path = "MutableVariable+Extensions";
+			sourceTree = "<group>";
+		};
 		30555C9B22DE741C00945A56 = {
 			isa = PBXGroup;
 			children = (
@@ -94,10 +184,11 @@
 		30555CA722DE741C00945A56 /* Reflections */ = {
 			isa = PBXGroup;
 			children = (
-				30555CC722DE7EB100945A56 /* Class.swift */,
-				30555CC922DE82EA00945A56 /* Field.swift */,
+				3022167322E1047A00C75076 /* Class */,
+				3022167622E206E500C75076 /* Extension */,
+				3022166822E0FA5300C75076 /* Variable */,
+				3022166922E0FA6C00C75076 /* Util */,
 				30555CC222DE771500945A56 /* Reflections.swift */,
-				30555CCB22DF531700945A56 /* Variable.swift */,
 				30555CC622DE7A0100945A56 /* Package.swift */,
 				30555CBF22DE758B00945A56 /* Reflections.podspec */,
 				30555CA922DE741C00945A56 /* Info.plist */,
@@ -209,7 +300,7 @@
 				};
 			};
 			buildConfigurationList = 30555C9F22DE741C00945A56 /* Build configuration list for PBXProject "Reflections" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -313,9 +404,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3022166C22E0FAAD00C75076 /* Variable+Convertible.swift in Sources */,
 				30555CC822DE7EB100945A56 /* Class.swift in Sources */,
+				3022167822E206FE00C75076 /* Pointer+Extensions.swift in Sources */,
+				3036203222E2198A0013A92E /* ImmutableVariable+Equatable.swift in Sources */,
 				30555CC322DE771500945A56 /* Reflections.swift in Sources */,
+				3022167022E0FADB00C75076 /* Variable+Hashable.swift in Sources */,
+				3022166322E0EA0500C75076 /* MutableVariable.swift in Sources */,
 				30555CCA22DE82EA00945A56 /* Field.swift in Sources */,
+				3022166522E0EBA900C75076 /* Strings.swift in Sources */,
+				3036203422E2199B0013A92E /* MutableVariable+Equatable.swift in Sources */,
+				3022167B22E2131A00C75076 /* Variable+Equatable.swift in Sources */,
+				3022167522E1FEE000C75076 /* ImmutableVariable.swift in Sources */,
 				30555CCC22DF531700945A56 /* Variable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
