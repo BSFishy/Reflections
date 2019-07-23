@@ -7,7 +7,7 @@
 //
 
 public class MutableVariable<T>: _Variable<T, UnsafeMutablePointer<T>> {
-    public override var value: T {
+    public override var typedValue: T {
         get {
             return pointer.pointee
         }

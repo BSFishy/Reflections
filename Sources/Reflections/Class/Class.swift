@@ -6,31 +6,30 @@
 //  Copyright © 2019 Matt Provost. All rights reserved.
 //
 
-class Class<T> {
-    private var type: T.Type
-    private var mirror: Mirror
+import Foundation
 
-    private(set) var name: String
-    private(set) var fields: [String: Field<Any>]
+public class Class<T: AnyObject> {
+    internal var type: T.Type
+    internal var mirror: Mirror
 
-    init(describing discriptor: T) {
-        self.type = Swift.type(of: discriptor)
-        self.mirror = Mirror(reflecting: discriptor)
+    public private(set) var name: String
 
-        self.name = "\(self.type)"
+    public internal(set) var fields: [String: Field]
+    public internal(set) var anonymousFields: [Field]
+
+    public internal(set) var properties: [String: Property]
+
+    public init(describing descriptor: T) {
+        self.type = Reflections.type(of: descriptor)!
+        self.mirror = Mirror(reflecting: descriptor)
+
+        self.name = Reflections.name(ofClass: self.type)
+
         self.fields = [:]
+        self.anonymousFields = []
 
-        let children = self.mirror.children
-        for idx in 0..<children.count {
-            var child = children[children.index(children.startIndex, offsetBy: idx)]
-            self.addChild(label: child.label, value: &child.value)
-        }
-    }
+        self.properties = [:]
 
-    private func addChild<T>(label: String?, value: inout T) {
-        if let label = label {
-            // TODO: see about casting this because I don't think this should be casted
-            self.fields[label] = (Field<T>(withName: label, andValue: &value) as! Field<Any>)
-        }
+        self.prepareFields()
     }
 }

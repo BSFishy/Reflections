@@ -16,6 +16,20 @@
 		3022167B22E2131A00C75076 /* Variable+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3022167A22E2131A00C75076 /* Variable+Equatable.swift */; };
 		3036203222E2198A0013A92E /* ImmutableVariable+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036203122E2198A0013A92E /* ImmutableVariable+Equatable.swift */; };
 		3036203422E2199B0013A92E /* MutableVariable+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036203322E2199B0013A92E /* MutableVariable+Equatable.swift */; };
+		3036203722E226C80013A92E /* Reflections+Variable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036203622E226C80013A92E /* Reflections+Variable.swift */; };
+		3036203922E226D50013A92E /* Reflections+Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036203822E226D50013A92E /* Reflections+Class.swift */; };
+		3036203C22E22B480013A92E /* InternalReflections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036203B22E22B480013A92E /* InternalReflections.swift */; };
+		3036203F22E22B760013A92E /* InternalReflections+Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036203E22E22B760013A92E /* InternalReflections+Class.swift */; };
+		3036204322E238970013A92E /* Class+Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036204222E238970013A92E /* Class+Field.swift */; };
+		3036204522E5F4A80013A92E /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036204422E5F4A80013A92E /* String+Extensions.swift */; };
+		3036204722E5F6710013A92E /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036204622E5F6710013A92E /* Types.swift */; };
+		3036204922E612820013A92E /* Reflectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036204822E612820013A92E /* Reflectable.swift */; };
+		3036204C22E613340013A92E /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036204B22E613340013A92E /* Property.swift */; };
+		3036204F22E618C40013A92E /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036204E22E618C40013A92E /* Method.swift */; };
+		3036205122E618CE0013A92E /* ClassMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036205022E618CE0013A92E /* ClassMethod.swift */; };
+		3036205322E618D90013A92E /* InstanceMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036205222E618D90013A92E /* InstanceMethod.swift */; };
+		3036205522E61A990013A92E /* InternalReflections+IVar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036205422E61A990013A92E /* InternalReflections+IVar.swift */; };
+		3036205A22E63E650013A92E /* InternalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036205922E63E650013A92E /* InternalTests.swift */; };
 		30555CAF22DE741C00945A56 /* Reflections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30555CA522DE741C00945A56 /* Reflections.framework */; };
 		30555CB422DE741C00945A56 /* ReflectionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30555CB322DE741C00945A56 /* ReflectionsTests.swift */; };
 		30555CC022DE758B00945A56 /* Reflections.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 30555CBF22DE758B00945A56 /* Reflections.podspec */; };
@@ -49,6 +63,20 @@
 		3022167A22E2131A00C75076 /* Variable+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Variable+Equatable.swift"; sourceTree = "<group>"; };
 		3036203122E2198A0013A92E /* ImmutableVariable+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImmutableVariable+Equatable.swift"; sourceTree = "<group>"; };
 		3036203322E2199B0013A92E /* MutableVariable+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MutableVariable+Equatable.swift"; sourceTree = "<group>"; };
+		3036203622E226C80013A92E /* Reflections+Variable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reflections+Variable.swift"; sourceTree = "<group>"; };
+		3036203822E226D50013A92E /* Reflections+Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reflections+Class.swift"; sourceTree = "<group>"; };
+		3036203B22E22B480013A92E /* InternalReflections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalReflections.swift; sourceTree = "<group>"; };
+		3036203E22E22B760013A92E /* InternalReflections+Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InternalReflections+Class.swift"; sourceTree = "<group>"; };
+		3036204222E238970013A92E /* Class+Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Class+Field.swift"; sourceTree = "<group>"; };
+		3036204422E5F4A80013A92E /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		3036204622E5F6710013A92E /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		3036204822E612820013A92E /* Reflectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reflectable.swift; sourceTree = "<group>"; };
+		3036204B22E613340013A92E /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
+		3036204E22E618C40013A92E /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
+		3036205022E618CE0013A92E /* ClassMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassMethod.swift; sourceTree = "<group>"; };
+		3036205222E618D90013A92E /* InstanceMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceMethod.swift; sourceTree = "<group>"; };
+		3036205422E61A990013A92E /* InternalReflections+IVar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InternalReflections+IVar.swift"; sourceTree = "<group>"; };
+		3036205922E63E650013A92E /* InternalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalTests.swift; sourceTree = "<group>"; };
 		30555CA522DE741C00945A56 /* Reflections.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Reflections.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30555CA922DE741C00945A56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30555CAE22DE741C00945A56 /* ReflectionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReflectionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				3022166422E0EBA900C75076 /* Strings.swift */,
+				3036204622E5F6710013A92E /* Types.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -121,8 +150,11 @@
 		3022167322E1047A00C75076 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				3036204122E238810013A92E /* Class+Extensions */,
+				3036204022E22F060013A92E /* Field */,
+				3036204D22E618B20013A92E /* Method */,
+				3036204A22E613260013A92E /* Property */,
 				30555CC722DE7EB100945A56 /* Class.swift */,
-				30555CC922DE82EA00945A56 /* Field.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -131,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				3022167722E206FE00C75076 /* Pointer+Extensions.swift */,
+				3036204422E5F4A80013A92E /* String+Extensions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -161,6 +194,67 @@
 			path = "MutableVariable+Extensions";
 			sourceTree = "<group>";
 		};
+		3036203522E2269D0013A92E /* Reflections+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3036203822E226D50013A92E /* Reflections+Class.swift */,
+				3036203622E226C80013A92E /* Reflections+Variable.swift */,
+			);
+			path = "Reflections+Extensions";
+			sourceTree = "<group>";
+		};
+		3036203A22E22B350013A92E /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				3036203D22E22B5B0013A92E /* InternalReflections+Extensions */,
+				3036203B22E22B480013A92E /* InternalReflections.swift */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
+		3036203D22E22B5B0013A92E /* InternalReflections+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3036203E22E22B760013A92E /* InternalReflections+Class.swift */,
+				3036205422E61A990013A92E /* InternalReflections+IVar.swift */,
+			);
+			path = "InternalReflections+Extensions";
+			sourceTree = "<group>";
+		};
+		3036204022E22F060013A92E /* Field */ = {
+			isa = PBXGroup;
+			children = (
+				30555CC922DE82EA00945A56 /* Field.swift */,
+			);
+			path = Field;
+			sourceTree = "<group>";
+		};
+		3036204122E238810013A92E /* Class+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3036204222E238970013A92E /* Class+Field.swift */,
+			);
+			path = "Class+Extensions";
+			sourceTree = "<group>";
+		};
+		3036204A22E613260013A92E /* Property */ = {
+			isa = PBXGroup;
+			children = (
+				3036204B22E613340013A92E /* Property.swift */,
+			);
+			path = Property;
+			sourceTree = "<group>";
+		};
+		3036204D22E618B20013A92E /* Method */ = {
+			isa = PBXGroup;
+			children = (
+				3036205022E618CE0013A92E /* ClassMethod.swift */,
+				3036205222E618D90013A92E /* InstanceMethod.swift */,
+				3036204E22E618C40013A92E /* Method.swift */,
+			);
+			path = Method;
+			sourceTree = "<group>";
+		};
 		30555C9B22DE741C00945A56 = {
 			isa = PBXGroup;
 			children = (
@@ -186,9 +280,12 @@
 			children = (
 				3022167322E1047A00C75076 /* Class */,
 				3022167622E206E500C75076 /* Extension */,
+				3036203A22E22B350013A92E /* Internal */,
+				3036203522E2269D0013A92E /* Reflections+Extensions */,
 				3022166822E0FA5300C75076 /* Variable */,
 				3022166922E0FA6C00C75076 /* Util */,
 				30555CC222DE771500945A56 /* Reflections.swift */,
+				3036204822E612820013A92E /* Reflectable.swift */,
 				30555CC622DE7A0100945A56 /* Package.swift */,
 				30555CBF22DE758B00945A56 /* Reflections.podspec */,
 				30555CA922DE741C00945A56 /* Info.plist */,
@@ -200,6 +297,7 @@
 		30555CB222DE741C00945A56 /* ReflectionsTests */ = {
 			isa = PBXGroup;
 			children = (
+				3036205922E63E650013A92E /* InternalTests.swift */,
 				30555CB322DE741C00945A56 /* ReflectionsTests.swift */,
 				30555CD722E0A7F900945A56 /* VariableTests.swift */,
 				30555CB522DE741C00945A56 /* Info.plist */,
@@ -406,17 +504,30 @@
 			files = (
 				3022166C22E0FAAD00C75076 /* Variable+Convertible.swift in Sources */,
 				30555CC822DE7EB100945A56 /* Class.swift in Sources */,
+				3036204C22E613340013A92E /* Property.swift in Sources */,
+				3036205122E618CE0013A92E /* ClassMethod.swift in Sources */,
+				3036203722E226C80013A92E /* Reflections+Variable.swift in Sources */,
+				3036204722E5F6710013A92E /* Types.swift in Sources */,
 				3022167822E206FE00C75076 /* Pointer+Extensions.swift in Sources */,
 				3036203222E2198A0013A92E /* ImmutableVariable+Equatable.swift in Sources */,
 				30555CC322DE771500945A56 /* Reflections.swift in Sources */,
+				3036204F22E618C40013A92E /* Method.swift in Sources */,
 				3022167022E0FADB00C75076 /* Variable+Hashable.swift in Sources */,
 				3022166322E0EA0500C75076 /* MutableVariable.swift in Sources */,
 				30555CCA22DE82EA00945A56 /* Field.swift in Sources */,
 				3022166522E0EBA900C75076 /* Strings.swift in Sources */,
+				3036205322E618D90013A92E /* InstanceMethod.swift in Sources */,
 				3036203422E2199B0013A92E /* MutableVariable+Equatable.swift in Sources */,
+				3036204922E612820013A92E /* Reflectable.swift in Sources */,
+				3036205522E61A990013A92E /* InternalReflections+IVar.swift in Sources */,
+				3036204322E238970013A92E /* Class+Field.swift in Sources */,
 				3022167B22E2131A00C75076 /* Variable+Equatable.swift in Sources */,
+				3036204522E5F4A80013A92E /* String+Extensions.swift in Sources */,
+				3036203922E226D50013A92E /* Reflections+Class.swift in Sources */,
 				3022167522E1FEE000C75076 /* ImmutableVariable.swift in Sources */,
+				3036203F22E22B760013A92E /* InternalReflections+Class.swift in Sources */,
 				30555CCC22DF531700945A56 /* Variable.swift in Sources */,
+				3036203C22E22B480013A92E /* InternalReflections.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +537,7 @@
 			files = (
 				30555CB422DE741C00945A56 /* ReflectionsTests.swift in Sources */,
 				30555CD822E0A7F900945A56 /* VariableTests.swift in Sources */,
+				3036205A22E63E650013A92E /* InternalTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

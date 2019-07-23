@@ -15,7 +15,7 @@ extension _Variable: Equatable {
 
 public func == <LType: Equatable, LPointer, RType>(lhs: _Variable<LType, LPointer>, rhs: RType) -> Bool {
     guard let rhsValue: LType = rhs as? LType else { return false }
-    return lhs.value == rhsValue
+    return lhs.typedValue == rhsValue
 }
 
 public func == <LType: Equatable, LPointer, RType>(lhs: RType, rhs: _Variable<LType, LPointer>) -> Bool {

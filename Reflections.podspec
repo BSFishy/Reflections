@@ -13,7 +13,7 @@ Pod::Spec.new do |spec|
   spec.summary      = "An advanced reflection library for Swift"
 
   spec.description  = <<-DESC
-Reflections is an advanced library for Swift designed to add convenience through reflection. The intention is to be able to write more intuitive code easier.
+Reflections is an advanced library for Swift designed to add convenience through reflection. The intention is to leverage the Objective-C Runtime API to provide Swift a large amount of customization during the runtime.
                    DESC
 
   spec.homepage     = "https://github.com/BSFishy/Reflections/"
@@ -25,7 +25,7 @@ Reflections is an advanced library for Swift designed to add convenience through
   spec.platform     = :ios, "10.0"
 
   spec.source       = { :git => "https://github.com/BSFishy/Reflections.git", :tag => "#{spec.version}" }
-  spec.source_files  = "Reflections/**/*.{swift,h,m}"
+  spec.source_files  = "Reflections/**/*.{swift}"
 
   spec.swift_version = "5.0"
 end

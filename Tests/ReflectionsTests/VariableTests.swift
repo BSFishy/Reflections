@@ -50,7 +50,7 @@ extension VariableTests {
             it("should be equal") {
                 RefDebug.debugLog("Comparing equality for \(name) variable of reference (\(stringify(reference.value))) and variable (\(stringify(variable)))")
 
-                expect(reference.value).to(equal(variable), description: "variable and reference are not equal to each other")
+                expect(reference.typedValue).to(equal(variable), description: "variable and reference are not equal to each other")
             }
 
             describe("comparing the memory layout and variable") {
@@ -78,9 +78,9 @@ extension VariableTests {
                     RefDebug.debugLog("Attempting to update the \(name) variable's reference (%p) according to the variable (%p)\n\tFrom: \(stringify(primary))\n\tTo: \(stringify(secondary))", reference.pointer, variablePointer)
 
                     variable = primary
-                    expect(reference.value).to(equal(variable), description: "variable and reference weren't initially equal")
+                    expect(reference.typedValue).to(equal(variable), description: "variable and reference weren't initially equal")
                     variable = secondary
-                    expect(reference.value).to(equal(variable), description: "variable and reference didn't become equal")
+                    expect(reference.typedValue).to(equal(variable), description: "variable and reference didn't become equal")
                 }
 
                 it("should update the variable") {
@@ -88,9 +88,9 @@ extension VariableTests {
                         RefDebug.debugLog("Attempting to update the \(name) variable (%p) according to the reference (%p)\n\tFrom: \(stringify(primary))\n\tTo: \(stringify(secondary))", variablePointer, reference.pointer)
 
                         variable = primary
-                        expect(variable).to(equal(reference.value), description: "variable and reference weren't initially equal")
-                        reference.value = secondary
-                        expect(variable).to(equal(reference.value), description: "variable and reference didn't become equal")
+                        expect(variable).to(equal(reference.typedValue), description: "variable and reference weren't initially equal")
+                        reference.typedValue = secondary
+                        expect(variable).to(equal(reference.typedValue), description: "variable and reference didn't become equal")
                     } else {
                         RefDebug.debugLog("An immutable reference cannot update the variable. Automatically passing")
 

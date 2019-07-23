@@ -9,15 +9,9 @@
 import Foundation
 
 public class Reflections {
+//    internal static var queue: DispatchQueue = DispatchQueue(label: "com.fishy.reflections")
+
     private init() {}
-
-    public static func immutable<T>(variable: UnsafePointer<T>) -> ImmutableVariable<T> {
-        return ImmutableVariable<T>(withVariable: variable)
-    }
-
-    public static func mutable<T>(variable: UnsafeMutablePointer<T>) -> MutableVariable<T> {
-        return MutableVariable<T>(withVariable: variable)
-    }
 }
 
 class RefDebug {

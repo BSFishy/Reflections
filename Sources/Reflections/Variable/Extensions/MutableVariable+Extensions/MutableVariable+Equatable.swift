@@ -48,7 +48,7 @@ public func == <LType, RType>(lhs: UnsafePointer<RType>, rhs: MutableVariable<LT
 
 public func == <LType: Equatable, RPointer: ReflectionsPointer, RType>(lhs: MutableVariable<LType>, rhs: RPointer) -> Bool where RPointer.Value == RType {
     guard let rValue: LType = rhs.value as? LType else { return false }
-    return lhs.value == rValue
+    return lhs.typedValue == rValue
 }
 
 public func == <LType: Equatable, RPointer: ReflectionsPointer, RType>(lhs: RPointer, rhs: MutableVariable<LType>) -> Bool where RPointer.Value == RType {
@@ -59,7 +59,7 @@ public func == <LType: Equatable, RPointer: ReflectionsPointer, RType>(lhs: RPoi
 
 public func == <LType: Equatable, RType>(lhs: MutableVariable<LType>, rhs: RType) -> Bool {
     guard let rValue: LType = rhs as? LType else { return false }
-    return lhs.value == rValue
+    return lhs.typedValue == rValue
 }
 
 public func == <LType: Equatable, RType>(lhs: RType, rhs: MutableVariable<LType>) -> Bool {
